@@ -22,8 +22,7 @@ final readonly class LogImport
     public function import(string $path, ?LogEntry $lastImportedLogEntry = null): void
     {
         $this->reader->load($path);
-        $counter = 0;
-        foreach ($this->reader->iterator() as $row){
+        foreach ($this->reader->iterator() as $index => $row){
             $logEntry = $this->serializer->deserialize(
                 $row,
                 LogEntry::class,
@@ -34,7 +33,7 @@ final readonly class LogImport
                 break;
             }
 
-            $this->logEntryRepository->save($logEntry, $counter % 200 === 0);
+            $this->logEntryRepository->save($logEntry, $index % 200 === 0);
         }
 
         $this->logEntryRepository->flush();
