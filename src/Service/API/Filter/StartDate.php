@@ -5,7 +5,6 @@ namespace App\Service\API\Filter;
 
 use App\DTO\CountApiRequest;
 use App\Repository\LogEntryRepository;
-use Doctrine\Common\Collections\Expr\Comparison;
 use Doctrine\ORM\QueryBuilder;
 
 final class StartDate implements Filter

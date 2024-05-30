@@ -8,7 +8,6 @@ use App\Entity\LogEntry;
 use App\Service\API\Filter\FilterBuilder;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-use Doctrine\Common\Collections\Expr\Comparison;
 
 
 /**
