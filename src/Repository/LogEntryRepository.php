@@ -16,7 +16,7 @@ use Doctrine\Persistence\ManagerRegistry;
 class LogEntryRepository extends ServiceEntityRepository
 {
     public const string ALIAS = 'logEntry';
-    public function __construct(ManagerRegistry $registry, private FilterBuilder $apiFilterBuilder)
+    public function __construct(ManagerRegistry $registry, private readonly FilterBuilder $apiFilterBuilder)
     {
         parent::__construct($registry, LogEntry::class);
     }

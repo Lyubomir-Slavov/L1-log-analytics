@@ -17,7 +17,7 @@ class LogDecoder implements DecoderInterface
      *     3:string
      * }
      */
-    public function decode(string $data, string $format, array $context = []): mixed
+    public function decode(string $data, string $format, array $context = []): array
     {
         $data = str_replace([' - - [', '] "', '" '], '|', $data);
         $logEntryArray = explode('|', $data);

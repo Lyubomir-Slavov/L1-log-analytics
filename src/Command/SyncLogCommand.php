@@ -18,8 +18,8 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 class SyncLogCommand extends Command
 {
     public function __construct(
-        private LogEntryRepository $logEntryRepository,
-        private LogImport $logImport
+        private readonly LogEntryRepository $logEntryRepository,
+        private readonly LogImport $logImport
     )
     {
         parent::__construct();
