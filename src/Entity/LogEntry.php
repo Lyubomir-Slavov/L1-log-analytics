@@ -5,10 +5,15 @@ namespace App\Entity;
 use App\Repository\LogEntryRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\Index;
 use Symfony\Component\Serializer\Attribute\Context;
 use Symfony\Component\Serializer\Attribute\SerializedName;
 use Symfony\Component\Serializer\Attribute\SerializedPath;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+
+#[Index(fields: ['serviceName'])]
+#[Index(fields: ['statusCode'])]
+#[Index(fields: ['date'])]
 
 #[ORM\Entity(repositoryClass: LogEntryRepository::class)]
 class LogEntry

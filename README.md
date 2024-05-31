@@ -10,6 +10,7 @@ with [FrankenPHP](https://frankenphp.dev) and [Caddy](https://caddyserver.com/) 
 3. Run `docker compose up --pull always -d --wait` to set up and start a fresh Symfony project
 4. Open `https://localhost` in your favorite web browser and [accept the auto-generated TLS certificate](https://stackoverflow.com/a/15076602/1352334)
 5. Run tests `docker compose exec -e APP_ENV=test php bin/phpunit`
+6. Documentation: https://localhost/api/doc
 
 ## If you want to use the MakeFile
 1. If not already done, [install Docker Compose](https://docs.docker.com/compose/install/) (v2.10+)
@@ -17,3 +18,4 @@ with [FrankenPHP](https://frankenphp.dev) and [Caddy](https://caddyserver.com/) 
 3. Run `make run`
 4. Open `https://localhost` in your favorite web browser and [accept the auto-generated TLS certificate](https://stackoverflow.com/a/15076602/1352334)
 5. Run tests `make test`
+6. Documentation: https://localhost/api/doc
