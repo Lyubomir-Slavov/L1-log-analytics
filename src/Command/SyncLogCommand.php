@@ -46,6 +46,4 @@ class SyncLogCommand extends Command
         $io->success("{$logPath} synced successfully");
         return Command::SUCCESS;
     }
-
-
 }

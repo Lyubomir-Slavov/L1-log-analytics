@@ -33,7 +33,9 @@ class LogEntryRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder(self::ALIAS)
             ->setMaxResults(1)
-            ->orderBy(self::ALIAS . '.date', 'DESC')->getQuery()
+            ->addOrderBy(self::ALIAS . '.date', 'DESC')
+            ->addOrderBy(self::ALIAS . '.id', 'ASC') // ASC because importing LIFO (last in the log gets imported first)
+            ->getQuery()
             ->getOneOrNullResult();
     }
 

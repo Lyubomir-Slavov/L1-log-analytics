@@ -121,4 +121,14 @@ class LogEntry
 
         return $this;
     }
+
+    public function eq(LogEntry $entry): bool
+    {
+        return
+            $this->statusCode === $entry->statusCode &&
+            $this->serviceName === $entry->serviceName &&
+            $this->protocol === $entry->protocol &&
+            $this->date == $entry->date &&
+            $this->route === $entry->route;
+    }
 }

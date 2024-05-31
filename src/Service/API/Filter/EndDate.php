@@ -16,7 +16,7 @@ final class EndDate implements Filter
             return;
         }
         $expr = $first ? 'where' : 'andWhere';
-        $queryBuilder->{$expr}(LogEntryRepository::ALIAS . '.endDate <= :endDate');
+        $queryBuilder->{$expr}(LogEntryRepository::ALIAS . '.date <= :endDate');
 
         $queryBuilder->setParameter('endDate', $countApiRequest->endDate);
     }

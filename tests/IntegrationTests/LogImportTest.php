@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests;
+namespace App\Tests\IntegrationTests;
 
 use App\Entity\LogEntry;
 use App\Repository\LogEntryRepository;
@@ -21,7 +21,7 @@ class LogImportTest extends KernelTestCase
         self::bootKernel();
         $serializer = static::getContainer()->get(SerializerInterface::class);
         $importer = new LogImport($this->mockLoadEntityRepository(),new LogReader(), $serializer);
-        $importer->import(__DIR__ .'/samples/logs.log');
+        $importer->import(__DIR__ .'/../samples/logs.log');
 
         $this->assertCount(20, $this->store);
         $this->assertSame('USER-SERVICE', $this->store[0]->getServiceName());

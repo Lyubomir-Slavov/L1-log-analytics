@@ -17,7 +17,7 @@ final class StartDate implements Filter
         }
 
         $expr = $first ? 'where' : 'andWhere';
-        $queryBuilder->{$expr}(LogEntryRepository::ALIAS . '.startDate >= :startDate');
+        $queryBuilder->{$expr}(LogEntryRepository::ALIAS . '.date >= :startDate');
 
         $queryBuilder->setParameter('startDate', $countApiRequest->startDate);
     }

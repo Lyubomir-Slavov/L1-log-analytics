@@ -11,13 +11,13 @@ final class ServiceName implements Filter
 {
     public function applyFilter(QueryBuilder $queryBuilder, CountApiRequest $countApiRequest, bool $first): void
     {
-        if(empty($countApiRequest->serviceName)){
+        if(empty($countApiRequest->serviceNames)){
             return;
         }
 
-        $filterValues = \is_array($countApiRequest->serviceName) ?
-            $countApiRequest->serviceName :
-            [$countApiRequest->serviceName];
+        $filterValues = \is_array($countApiRequest->serviceNames) ?
+            $countApiRequest->serviceNames :
+            [$countApiRequest->serviceNames];
 
         $expr = $first ? 'where' : 'andWhere';
         $queryBuilder->{$expr}(LogEntryRepository::ALIAS . '.serviceName in (:serviceName)');

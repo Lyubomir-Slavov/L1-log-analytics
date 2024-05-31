@@ -29,7 +29,10 @@ final readonly class LogImport
                 'log',
                 [AbstractObjectNormalizer::DISABLE_TYPE_ENFORCEMENT => true]
             );
-            if(null !== $lastImportedLogEntry && $lastImportedLogEntry->getDate() <= $logEntry->getDate()){
+            // break If we got to the last imported log entry or if we surpassed its date
+            if(null !== $lastImportedLogEntry &&
+                ($lastImportedLogEntry->eq($logEntry) || $lastImportedLogEntry->getDate() > $logEntry->getDate())
+            ){
                 break;
             }
 

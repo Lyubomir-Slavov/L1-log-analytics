@@ -1,0 +1,14 @@
+nelmio_api_doc:
+    documentation:
+        info:
+            title: Log analytics API
+            description: Log stream analysis API
+            contact:
+                email: marko.schilde@legal.one
+                license:
+                    name: Apache 2.0
+                    url: http://www.apache.org/licenses/LICENSE-2.0.html
+            version: 1.0.0
+    areas: # to filter documented areas
+        path_patterns:
+            - /count

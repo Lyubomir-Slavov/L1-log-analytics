@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests;
+namespace App\Tests\UnitTests;
 
 use App\Service\Reader\LogReader;
 use PHPUnit\Framework\TestCase;
@@ -11,7 +11,7 @@ class LogReaderTest extends TestCase
     {
         $reader = new LogReader();
 
-        $reader->load(__DIR__ .'/samples/logs.log');
+        $reader->load(__DIR__ .'/../samples/logs.log');
         $rows = [];
 
         foreach ($reader->iterator() as $row){
