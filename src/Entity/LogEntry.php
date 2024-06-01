@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Enum\HTTPMethod;
 use App\Repository\LogEntryRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -39,8 +40,8 @@ class LogEntry
     private int $statusCode;
 
     #[SerializedPath('[2][0]')]
-    #[ORM\Column(type:Types::STRING, length: 255, nullable: false)]
-    private string $requestMethod;
+    #[ORM\Column(type:Types::STRING, length: 255, nullable: false, enumType: HTTPMethod::class)]
+    private HTTPMethod $requestMethod;
 
     #[SerializedPath('[2][1]')]
     #[ORM\Column(type:Types::STRING, length: 255, nullable: false)]
@@ -91,12 +92,12 @@ class LogEntry
         return $this;
     }
 
-    public function getRequestMethod(): string
+    public function getRequestMethod(): HTTPMethod
     {
         return $this->requestMethod;
     }
 
-    public function setRequestMethod(string $requestMethod): static
+    public function setRequestMethod(HTTPMethod $requestMethod): static
     {
         $this->requestMethod = $requestMethod;
 

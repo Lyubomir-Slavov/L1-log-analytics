@@ -23,7 +23,7 @@ class ApiControllerTest extends WebTestCase
         $client = static::createClient();
         LogEntryFactory::createMany(
             3,
-            ['serviceName' => 'One-Service','statusCode' => '200', 'date' => faker()->dateTimeThisMonth()]
+            ['serviceName' => 'One-Service','statusCode' => '200', 'date' => faker()->dateTimeBetween('-1 month')]
         );
         LogEntryFactory::createMany(
             5,
@@ -49,7 +49,7 @@ class ApiControllerTest extends WebTestCase
             'Filter by multiple statusCode' => ['statusCode[]=200&statusCode[]=400', 8],
             'Filter by service name' => ['serviceNames=Two-Service', 5],
             'Filter by startDate' => [
-                'startDate=' . (new \DateTime('first day of this month'))->format('Y-m-d H:i:s'),
+                'startDate=' . (new \DateTime('-2 months'))->format('Y-m-d H:i:s'),
                 3
             ],
             'Filter by endDate' => [

@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 
 class LogReaderTest extends TestCase
 {
-    public function testSomething(): void
+    public function testReader(): void
     {
         $reader = new LogReader();
 

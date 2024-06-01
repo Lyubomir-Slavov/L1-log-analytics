@@ -3,6 +3,7 @@
 namespace App\Tests\IntegrationTests;
 
 use App\Entity\LogEntry;
+use App\Enum\HTTPMethod;
 use App\Repository\LogEntryRepository;
 use App\Service\LogImport;
 use App\Service\Reader\LogReader;
@@ -16,7 +17,7 @@ class LogImportTest extends KernelTestCase
      */
     private array $store = [];
 
-    public function testSomething(): void
+    public function testImport(): void
     {
         self::bootKernel();
         $serializer = static::getContainer()->get(SerializerInterface::class);
@@ -27,7 +28,7 @@ class LogImportTest extends KernelTestCase
         $this->assertSame('USER-SERVICE', $this->store[0]->getServiceName());
         $this->assertEquals(new \DateTime('2018-08-18T10:33:59+0000'), $this->store[0]->getDate());
         $this->assertSame(201, $this->store[0]->getStatusCode());
-        $this->assertSame('POST', $this->store[0]->getRequestMethod());
+        $this->assertSame(HTTPMethod::POST, $this->store[0]->getRequestMethod());
         $this->assertSame('/users', $this->store[0]->getRoute());
         $this->assertSame('HTTP/1.1', $this->store[0]->getProtocol());
     }

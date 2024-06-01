@@ -3,6 +3,7 @@
 namespace App\Factory;
 
 use App\Entity\LogEntry;
+use App\Enum\HTTPMethod;
 use App\Repository\LogEntryRepository;
 use Zenstruck\Foundry\ModelFactory;
 use Zenstruck\Foundry\Proxy;
@@ -45,7 +46,7 @@ final class LogEntryFactory extends ModelFactory
         return [
             'date' => \DateTimeImmutable::createFromMutable(self::faker()->dateTime()),
             'protocol' => 'HTTP/1.1',
-            'requestMethod' => self::faker()->randomElement(['GET', 'POST', 'PUT', 'DELETE']),
+            'requestMethod' => self::faker()->randomElement(HTTPMethod::cases()),
             'route' => self::faker()->text(255),
             'serviceName' => self::faker()->city(),
             'statusCode' => self::faker()->numberBetween(100,511),
