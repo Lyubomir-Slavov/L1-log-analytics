@@ -28,7 +28,7 @@ class ApiController extends AbstractController
         description: 'bad input parameter',
     )]
     #[OA\Parameter(
-        name: 'serviceNames',
+        name: 'serviceNames[]',
         description: 'array of service names',
         in: 'query',
         schema: new OA\Schema(type: 'array', items: new OA\Items(type: 'string'))
@@ -46,10 +46,10 @@ class ApiController extends AbstractController
         schema: new OA\Schema(type: 'string', format: 'dateTime')
     )]
     #[OA\Parameter(
-        name: 'statusCode',
+        name: 'statusCode[]',
         description: 'filter on request status code',
         in: 'query',
-        schema: new OA\Schema(type: 'array', items: new OA\Items(type: 'string')),
+        schema: new OA\Schema(type: 'array', items: new OA\Items(type: 'integer')),
     )]
     #[OA\Tag(name: 'analytics')]
     public function index(
