@@ -9,6 +9,7 @@ use App\Repository\LogEntryRepository;
 use Nelmio\ApiDocBundle\Annotation\Model;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Attribute\MapQueryString;
 use Symfony\Component\Routing\Attribute\Route;
 use OpenApi\Attributes as OA;
@@ -53,7 +54,7 @@ class ApiController extends AbstractController
     )]
     #[OA\Tag(name: 'analytics')]
     public function index(
-       #[MapQueryString] ?CountApiRequest $query,
+       #[MapQueryString(validationFailedStatusCode: Response::HTTP_BAD_REQUEST)] ?CountApiRequest $query,
         LogEntryRepository $logEntryRepository,
     ): JsonResponse
     {
