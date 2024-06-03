@@ -5,7 +5,7 @@ namespace App\Service\Reader;
 
 class LogReader implements Reader
 {
-    private const int DEFAULT_BUFFER_SIZE = 1024;
+    private const int DEFAULT_BUFFER_SIZE = 1024 * 1024; // 1MB
     /**
      * @var resource|false $file
      */
