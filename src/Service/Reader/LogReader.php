@@ -5,6 +5,13 @@ namespace App\Service\Reader;
 
 class LogReader implements Reader
 {
+    public function __destruct()
+    {
+        if(\is_resource($this->file)){
+            \fclose($this->file);
+        }
+    }
+
     private const int DEFAULT_BUFFER_SIZE = 1024 * 1024; // 1MB
     /**
      * @var resource|false $file
